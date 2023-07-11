@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { Message } from '../interfaces/Messages.interface';
 
 @Injectable({
@@ -11,7 +11,13 @@ export class MessagesService {
   constructor(private http: HttpClient) { }
 
 
-  getAllMessages():Observable<Message[]>{
+  getAllMessages():Observable<Message[] | undefined>{
     return this.http.get<Message[]>(`/audio/getAudioMessages`)
+    .pipe(
+        catchError(error => of(undefined))
+    )
   }
+
+
+
 }

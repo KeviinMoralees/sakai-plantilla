@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { MessagesService } from '../../services/messages.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../../interfaces/Messages.interface';
 
 @Component({
@@ -7,16 +6,9 @@ import { Message } from '../../interfaces/Messages.interface';
   templateUrl: './messages-table.component.html',
   styleUrls: ['./messages-table.component.scss']
 })
-export class MessagesTableComponent implements OnInit {
+export class MessagesTableComponent {
 
+    @Input()
     public messages!: Message[];
-
-    constructor(private messagesServices:MessagesService){}
-
-    ngOnInit(): void {
-        this.messagesServices.getAllMessages().subscribe( messages => {
-            this.messages = messages;
-        })
-    }
 
 }

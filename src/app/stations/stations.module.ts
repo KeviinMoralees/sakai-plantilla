@@ -8,6 +8,7 @@ import { StationsEditPageComponent } from './pages/stations-edit-page/stations-e
 import { StationsCreatePageComponent } from './pages/stations-create-page/stations-create-page.component';
 import { StationsTableComponent } from './components/stations-table/stations-table.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
   imports: [
     CommonModule,
     StationsRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
   ]
 })
 export class StationsModule { }

@@ -1,9 +1,18 @@
-<div class="grid">
+
+
+<ng-template #loading>
+    <div class="card">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>
+
+
+
+<div *ngIf="stations; else loading" class="grid">
     <div class="col-12">
         <div class="card">
           <h1> Estaciones </h1>
-
-          <stations-table></stations-table>
+          <stations-table [stations]="stations"></stations-table>
         </div>
     </div>
 </div>

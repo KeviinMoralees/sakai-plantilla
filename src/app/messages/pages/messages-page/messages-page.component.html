@@ -1,8 +1,15 @@
-<div class="grid">
+
+<ng-template #loading>
+    <div class="card">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>
+
+<div *ngIf="messages; else loading" class="grid">
     <div class="col-12">
         <div class="card">
           <h1> Audios</h1>
-          <messages-table></messages-table>
+          <messages-table [messages]="messages"></messages-table>
         </div>
     </div>
 </div>

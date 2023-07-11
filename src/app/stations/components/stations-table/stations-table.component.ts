@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { StationsService } from '../../services/stations.service';
+import { Component, Input} from '@angular/core';
 import { Station } from '../../interfaces/station';
 
 @Component({
@@ -7,18 +6,11 @@ import { Station } from '../../interfaces/station';
   templateUrl: './stations-table.component.html',
   styleUrls: ['./stations-table.component.scss']
 })
-export class StationsTableComponent implements OnInit{
+export class StationsTableComponent{
 
+    @Input()
     public stations!: Station[];
 
-    constructor(private stationsServices: StationsService){
 
-    }
-
-    ngOnInit(): void {
-        this.stationsServices.getAllStations().subscribe( stations => {
-            this.stations = stations
-        })
-    }
 
 }

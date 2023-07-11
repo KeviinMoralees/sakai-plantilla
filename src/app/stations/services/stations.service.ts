@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { Station } from '../interfaces/station';
 
 @Injectable({
@@ -8,11 +8,19 @@ import { Station } from '../interfaces/station';
 })
 export class StationsService {
 
-  constructor(private http: HttpClient) { }
+    private baseUrl = '/station'
+
+    constructor(private http: HttpClient) { }
 
 
-  getAllStations():Observable<Station[]>{
-    return this.http.get<Station[]>(`/station/getStations`)
-  }
+    // Manejo error devolviendo undefined en caso de error
+    getAllStations():Observable<Station[] | undefined >{
+        return this.http.get<Station[]>(`${this.baseUrl}/getStations`)
+        .pipe(
+            catchError( error => of(undefined))
+        )
+    }
+
+    
 
 }
