@@ -6,6 +6,8 @@ import { MessagesCreatePageComponent } from './pages/messages-create-page/messag
 import { MessagesEditPageComponent } from './pages/messages-edit-page/messages-edit-page.component';
 import { MessagesSeePageComponent } from './pages/messages-see-page/messages-see-page.component';
 import { MessagesPageComponent } from './pages/messages-page/messages-page.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { MessagesTableComponent } from './components/messages-table/messages-table.component';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { MessagesPageComponent } from './pages/messages-page/messages-page.compo
     MessagesCreatePageComponent,
     MessagesEditPageComponent,
     MessagesSeePageComponent,
-    MessagesPageComponent
+    MessagesPageComponent,
+    MessagesTableComponent
   ],
   imports: [
     CommonModule,
-    MessagesRoutingModule
+    MessagesRoutingModule,
+    PrimeNgModule
   ]
 })
 export class MessagesModule { }

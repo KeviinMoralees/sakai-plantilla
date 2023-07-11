@@ -6,6 +6,8 @@ import { StationsPageComponent } from './pages/stations-page/stations-page.compo
 import { StationsSeePageComponent } from './pages/stations-see-page/stations-see-page.component';
 import { StationsEditPageComponent } from './pages/stations-edit-page/stations-edit-page.component';
 import { StationsCreatePageComponent } from './pages/stations-create-page/stations-create-page.component';
+import { StationsTableComponent } from './components/stations-table/stations-table.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { StationsCreatePageComponent } from './pages/stations-create-page/statio
     StationsPageComponent,
     StationsSeePageComponent,
     StationsEditPageComponent,
-    StationsCreatePageComponent
+    StationsCreatePageComponent,
+    StationsTableComponent
   ],
   imports: [
     CommonModule,
-    StationsRoutingModule
+    StationsRoutingModule,
+    PrimeNgModule
   ]
 })
 export class StationsModule { }
