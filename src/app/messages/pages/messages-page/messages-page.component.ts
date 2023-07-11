@@ -19,7 +19,7 @@ export class MessagesPageComponent implements OnInit {
     ngOnInit(): void {
         this.messagesServices.getAllMessages().
         pipe(
-            delay(2000)
+            delay(300)
         )
         .subscribe( messages => {
 
@@ -27,6 +27,10 @@ export class MessagesPageComponent implements OnInit {
             this.messages = messages;
             return;
         })
+    }
+
+    onAdd():void{
+        this.router.navigate([`/messages/create`])
     }
 
 

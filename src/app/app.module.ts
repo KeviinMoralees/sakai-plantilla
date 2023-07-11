@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { SharedModule } from './shared/shared.module';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-
+        ConfirmationService, MessageService
     ],
     bootstrap: [AppComponent]
 })

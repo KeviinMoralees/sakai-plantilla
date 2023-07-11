@@ -9,18 +9,22 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
 >
 <ng-template pTemplate="header">
     <tr>
-        <th style="width:25%">Id</th>
-        <th style="width:25%">Name</th>
-        <th style="width:25%">Description</th>
-        <th style="width:25%">Creacion</th>
+        <th style="width:33%">Name</th>
+        <th style="width:33%">Description</th>
+        <th style="width:33%">Acciones</th>
     </tr>
 </ng-template>
 <ng-template pTemplate="body" let-messages>
     <tr>
-        <td>{{ messages.idAudioMessage }}</td>
         <td>{{ messages.name }}</td>
-        <td>{{ messages.description }}</td>
-        <td>{{ messages.creationTime }}</td>
+        <td>
+            <p-button (click)="showDialogOInfo(messages.name,messages.description )" icon="pi pi-info" styleClass="p-button-success"></p-button>
+        </td>
+        <td>
+            <p-button (click)="onPlay(messages.idAudioMessage)" icon="pi pi-play" styleClass="p-button-success mx-1"></p-button>
+            <p-button (click)="onEdit(messages.idAudioMessage)" icon="pi pi-pencil" styleClass="p-button-success mx-1"></p-button>
+            <p-button (click)="onDelete(messages.idAudioMessage)" icon="pi pi-trash" styleClass="p-button-success mx-1"></p-button>
+        </td>
     </tr>
 </ng-template>
 <ng-template pTemplate="paginatorleft">
@@ -30,3 +34,15 @@ currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
 </ng-template>
 </p-table>
+
+<!-- dialog info -->
+<p-dialog [header]="this.messageName" [(visible)]="visible" [style]="{width: '50vw'}">
+    <p>{{this.messageDescription}}</p>
+</p-dialog>
+
+
+<!-- dialog delete -->
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+

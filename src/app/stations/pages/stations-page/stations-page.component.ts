@@ -15,10 +15,11 @@ export class StationsPageComponent implements OnInit {
 
     constructor(private stationsServices: StationsService, private router: Router){}
 
+
     ngOnInit(): void {
         this.stationsServices.getAllStations()
         .pipe(
-            delay(2000)
+            delay(300)
         )
         .subscribe( stations => {
             if(!stations) return this.router.navigate([`/dashboard`])
@@ -26,6 +27,10 @@ export class StationsPageComponent implements OnInit {
             this.stations = stations
             return;
         })
+    }
+
+    onAdd():void{
+        this.router.navigate([`/stations/create`])
     }
 
 }

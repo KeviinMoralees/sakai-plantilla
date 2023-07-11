@@ -8,8 +8,12 @@
 <div *ngIf="messages; else loading" class="grid">
     <div class="col-12">
         <div class="card">
-          <h1> Audios</h1>
+            <div class="flex justify-content-between mb-3">
+                <h1> Audios</h1>
+                <button (click)="onAdd()" pButton pRipple label="Crear Audio" class="p-button-success"></button>
+            </div>
           <messages-table [messages]="messages"></messages-table>
         </div>
     </div>
 </div>
+

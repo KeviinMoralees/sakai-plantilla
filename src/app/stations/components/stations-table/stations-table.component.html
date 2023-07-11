@@ -11,10 +11,11 @@
 >
     <ng-template pTemplate="header">
         <tr>
-            <th style="width:25%">Id</th>
-            <th style="width:25%">Name</th>
-            <th style="width:25%">Latitude</th>
-            <th style="width:25%">Longitude</th>
+            <th style="width:20%">Id</th>
+            <th style="width:20%">Name</th>
+            <th style="width:20%">Latitude</th>
+            <th style="width:20%">Observacion</th>
+            <th style="width:20%">Acciones</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-station>
@@ -22,7 +23,14 @@
             <td>{{ station.idStation }}</td>
             <td>{{ station.name }}</td>
             <td>{{ station.latitude }}</td>
-            <td>{{ station.longitude }}</td>
+            <td>
+                <p-button (click)="showDialogOInfo(station.name, station.observations)" icon="pi pi-info" styleClass="p-button-success"></p-button>
+            </td>
+            <td>
+                <p-button (click)="onSee(station.idStation)" icon="pi pi-search" styleClass="p-button-success mx-1"></p-button>
+                <p-button (click)="onEdit(station.idStation)" icon="pi pi-pencil" styleClass="p-button-success mx-1"></p-button>
+                <p-button (click)="onDelete(station.idStation)" icon="pi pi-trash" styleClass="p-button-success mx-1"></p-button>
+            </td>
         </tr>
     </ng-template>
     <ng-template pTemplate="paginatorleft">
@@ -32,3 +40,12 @@
         <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-table>
+
+<!-- dialog info -->
+<p-dialog [header]="this.stationName" [(visible)]="visible" [style]="{width: '50vw'}">
+    <p>{{this.stationObservation}}</p>
+</p-dialog>
+
+<!-- dialog delete -->
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

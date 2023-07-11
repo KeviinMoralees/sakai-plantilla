@@ -11,7 +11,10 @@
 <div *ngIf="stations; else loading" class="grid">
     <div class="col-12">
         <div class="card">
-          <h1> Estaciones </h1>
+            <div class="flex justify-content-between mb-3">
+                <h1> Estaciones</h1>
+                <button (click)="onAdd()" pButton pRipple label="Crear Estacion" class="p-button-success"></button>
+            </div>
           <stations-table [stations]="stations"></stations-table>
         </div>
     </div>

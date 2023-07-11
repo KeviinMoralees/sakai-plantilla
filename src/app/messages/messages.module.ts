@@ -8,6 +8,8 @@ import { MessagesSeePageComponent } from './pages/messages-see-page/messages-see
 import { MessagesPageComponent } from './pages/messages-page/messages-page.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { MessagesTableComponent } from './components/messages-table/messages-table.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
