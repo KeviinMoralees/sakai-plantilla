@@ -27,12 +27,19 @@ export class MessagesService {
             )
     }
 
-    uploadAudio(formData: FormData,description:string,name: string): Observable<HttpEvent<string[]>> {
+    uploadAudio(formData: FormData, description: string, name: string): Observable<HttpEvent<string[]>> {
         return this.http.post<string[]>(`${this.baseUrl}/saveAudioMessage?description=${description}&name=${name}`, formData, {
-          reportProgress: true,
-          observe: 'events'
+            reportProgress: true,
+            observe: 'events'
         });
-      }
+    }
+
+    updateAudioMessage(audioMessage: Message | any ): Observable<Message | undefined | any>{
+        return this.http.put<any>(`/audio/updateAudioMessage`,audioMessage)
+        .pipe(
+            catchError( error => of(undefined))
+        )
+    }
 
 
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MessagesRoutingModule } from './messages-routing.module';
 import { MessagesCreatePageComponent } from './pages/messages-create-page/messages-create-page.component';
@@ -9,7 +10,6 @@ import { MessagesPageComponent } from './pages/messages-page/messages-page.compo
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { MessagesTableComponent } from './components/messages-table/messages-table.component';
 import { FormMessagesComponent } from './components/form-messages/form-messages.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 

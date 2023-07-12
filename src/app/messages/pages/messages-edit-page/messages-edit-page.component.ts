@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
+import { MessagesService } from '../../services/messages.service';
 
 @Component({
   selector: 'app-messages-edit-page',
@@ -18,13 +19,23 @@ export class MessagesEditPageComponent implements OnInit {
     })
 
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder){}
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private formBuilder: FormBuilder,
+        private messagesService: MessagesService
+    ){}
 
     ngOnInit(): void {
         this.activatedRoute.params
         .pipe(
-            switchMap(({id}) => this.idAudio = id)
-        ).subscribe()
+            tap(({id}) => this.idAudio = id ),
+            switchMap(({id}) => this.messagesService.getMessageForId(id)),
+        ).subscribe( audio => {
+            this.formMessage.reset({
+                name: audio?.name,
+                description: audio?.description
+            })
+        })
     }
 
 }
