@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
 import { MessagesService } from '../../services/messages.service';
+import { FormBuilderMessagesService } from '../../services/form-builder-messages.service';
 
 @Component({
   selector: 'app-messages-edit-page',
@@ -13,16 +14,13 @@ export class MessagesEditPageComponent implements OnInit {
 
 
     public idAudio!: string;
-    public formMessage: FormGroup = this.formBuilder.group({
-        name:['', [Validators.required]],
-        description: ['', [Validators.required]],
-    })
+    public formMessage: FormGroup = this.formBuilderMessage.builderFormMessage()
 
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private formBuilder: FormBuilder,
-        private messagesService: MessagesService
+        private messagesService: MessagesService,
+        private formBuilderMessage: FormBuilderMessagesService
     ){}
 
     ngOnInit(): void {
@@ -31,10 +29,7 @@ export class MessagesEditPageComponent implements OnInit {
             tap(({id}) => this.idAudio = id ),
             switchMap(({id}) => this.messagesService.getMessageForId(id)),
         ).subscribe( audio => {
-            this.formMessage.reset({
-                name: audio?.name,
-                description: audio?.description
-            })
+            this.formMessage.reset(audio)
         })
     }
 

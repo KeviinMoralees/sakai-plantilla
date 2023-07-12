@@ -14,51 +14,51 @@
 
         <div class="field col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input  type="number" class="w-full"  pInputText formControlName="latitud" [ngClass]="{'ng-dirty': isDirty}"/>
+                <input  type="number" class="w-full"  pInputText formControlName="latitude" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Latitud</label>
             </span>
-            <span *ngIf="isValidField('latitud')">
-                {{ getFieldError('latitud') }}
+            <span *ngIf="isValidField('latitude')">
+                {{ getFieldError('latitude') }}
             </span>
         </div>
 
         <div class="fiel col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input type="number" class="w-full"  pInputText formControlName="longitud" [ngClass]="{'ng-dirty': isDirty}"/>
+                <input type="number" class="w-full"  pInputText formControlName="longitude" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Longitud</label>
             </span>
-            <span *ngIf="isValidField('longitud')">
-                {{ getFieldError('longitud') }}
+            <span *ngIf="isValidField('longitude')">
+                {{ getFieldError('longitude') }}
             </span>
         </div>
 
         <div class="fiel col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input class="w-full" pInputText formControlName="observacion" [ngClass]="{'ng-dirty': isDirty}"/>
+                <input class="w-full" pInputText formControlName="observations" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Observaciones</label>
             </span>
-            <span *ngIf="isValidField('observacion')">
-                {{ getFieldError('observacion') }}
+            <span *ngIf="isValidField('observations')">
+                {{ getFieldError('observations') }}
             </span>
         </div>
 
         <div class="fiel col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input type="number" class="w-full" pInputText formControlName="volumen" [ngClass]="{'ng-dirty': isDirty}"/>
+                <input type="number" class="w-full" pInputText formControlName="speakerVolume" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Volumen</label>
             </span>
-            <span *ngIf="isValidField('volumen')">
-                {{ getFieldError('volumen') }}
+            <span *ngIf="isValidField('speakerVolume')">
+                {{ getFieldError('speakerVolume') }}
             </span>
         </div>
 
         <div class="fiel col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input type="number" class="w-full" pInputText formControlName="tiempoTelemetria" [ngClass]="{'ng-dirty': isDirty}"/>
+                <input type="number" class="w-full" pInputText formControlName="telemetryTime" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Tiempo Telemetria</label>
             </span>
-            <span *ngIf="isValidField('tiempoTelemetria')">
-                {{ getFieldError('tiempoTelemetria') }}
+            <span *ngIf="isValidField('telemetryTime')">
+                {{ getFieldError('telemetryTime') }}
             </span>
         </div>
 

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormValidatorsService } from 'src/app/shared/services/form-validators.service';
+import { FormBuilderService } from '../../services/form-builder.service';
 
 @Component({
   selector: 'form-station',
@@ -12,20 +13,13 @@ export class FormStationComponent implements OnInit {
 
 
     @Input()
-    public formStation: FormGroup = this.formBuilder.group({
-       name:['', [Validators.required,Validators.minLength(5)]],
-       latitud: [0, [Validators.required]],
-       longitud: [0, [Validators.required]],
-       observacion: ['', [Validators.required]],
-       volumen: [0, [Validators.required]],
-       tiempoTelemetria: [0, [Validators.required]],
-    })
+    public formStation: FormGroup = this.formBuilderService.builderFormStation()
 
     @Input()
     public method!: string;
     public isDirty: boolean = false;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private formValidatorService:FormValidatorsService){}
+    constructor(private router: Router, private formValidatorService:FormValidatorsService, private formBuilderService:FormBuilderService ){}
 
     isValidField( field : string){
         return this.formValidatorService.isValidField(this.formStation, field)

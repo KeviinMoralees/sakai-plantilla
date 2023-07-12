@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessagesService } from '../../services/messages.service';
 import { Message } from '../../interfaces/Messages.interface';
 import { FormValidatorsService } from 'src/app/shared/services/form-validators.service';
+import { FormBuilderMessagesService } from '../../services/form-builder-messages.service';
 
 @Component({
     selector: 'form-messages',
@@ -13,18 +14,18 @@ import { FormValidatorsService } from 'src/app/shared/services/form-validators.s
 export class FormMessagesComponent{
 
 
-    @Input() public formMessages: FormGroup = this.formBuilder.group({
-                name: ['', [Validators.required,Validators.minLength(4)]],
-                description: ['', [Validators.required,Validators.minLength(8)]],
-            })
-
+    @Input() public formMessages: FormGroup = this.formBuilderMessages.builderFormMessage()
     @Input() public method!: string;
     @Input() public audioId!: string;
     public files!: File[];
     isDirty: boolean = false;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private messagesService: MessagesService,
-        private formValidatorService: FormValidatorsService) { }
+    constructor(
+        private router: Router,
+        private messagesService: MessagesService,
+        private formValidatorService: FormValidatorsService,
+        private formBuilderMessages: FormBuilderMessagesService
+    ){ }
 
 
     get audioMessage(): Message {
@@ -55,7 +56,6 @@ export class FormMessagesComponent{
     onSubmit(): void {
 
         if(this.formMessages.invalid){
-            console.log('invalido');
             this.isDirty = true;
             this.formMessages.markAllAsTouched();
             return
@@ -80,8 +80,6 @@ export class FormMessagesComponent{
         })
         return;
     }
-
-
 
     onBack() {
         this.router.navigate([`/messages`])
