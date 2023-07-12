@@ -7,6 +7,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 
@@ -19,7 +20,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     ConfirmDialogModule,
     ToastModule,
     InputTextModule,
-    InputNumberModule
+    InputNumberModule,
+    FileUploadModule
   ]
 })
 export class PrimeNgModule { }

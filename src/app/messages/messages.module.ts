@@ -8,7 +8,8 @@ import { MessagesSeePageComponent } from './pages/messages-see-page/messages-see
 import { MessagesPageComponent } from './pages/messages-page/messages-page.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { MessagesTableComponent } from './components/messages-table/messages-table.component';
-import { SharedModule } from '../shared/shared.module';
+import { FormMessagesComponent } from './components/form-messages/form-messages.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,12 +19,14 @@ import { SharedModule } from '../shared/shared.module';
     MessagesEditPageComponent,
     MessagesSeePageComponent,
     MessagesPageComponent,
-    MessagesTableComponent
+    MessagesTableComponent,
+    FormMessagesComponent
   ],
   imports: [
     CommonModule,
     MessagesRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
 export class MessagesModule { }

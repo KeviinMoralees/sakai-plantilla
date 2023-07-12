@@ -9,7 +9,7 @@ import { StationsTableComponent } from './components/stations-table/stations-tab
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { FormStationComponent } from './components/form-station/form-station.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormStationSeeEditComponent } from './components/form-station-see-edit/form-station-see-edit.component';
+
 
 
 @NgModule({
@@ -19,8 +19,8 @@ import { FormStationSeeEditComponent } from './components/form-station-see-edit/
     StationsEditPageComponent,
     StationsCreatePageComponent,
     StationsTableComponent,
-    FormStationComponent,
-    FormStationSeeEditComponent
+    FormStationComponent
+
   ],
   imports: [
     CommonModule,

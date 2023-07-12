@@ -1,0 +1,40 @@
+
+<form autocomplete="off" [formGroup]="formMessages" (ngSubmit)="onSubmit()">
+
+    <div class="formgrid grid">
+        <div class="field col-12 md:col-6 my-3">
+            <span class="p-float-label">
+                <input class="w-full" pInputText  formControlName="name" />
+                <label htmlFor="username">Name</label>
+            </span>
+        </div>
+
+        <div class="field col-12 md:col-6 my-3">
+            <span class="p-float-label">
+                <input  class="w-full"  pInputText formControlName="description"/>
+                <label htmlFor="number-input">Descripcion</label>
+            </span>
+        </div>
+
+        <div *ngIf="this.method == 'create'" class="field col-12 md:col-12 my-3">
+            <p-toast></p-toast>
+            <input type="file" (change)="selectedFile($event)" name="files"
+            class="form-control" />
+        </div>
+
+
+
+        <div class="fiel col-12 md:col-6 my-3">
+            <button (click)="onBack()" pButton pRipple label="Regresar" class="p-button-success w-full"></button>
+        </div>
+
+        <div class="fiel col-12 md:col-6 my-3">
+            <button type="submit"  pButton pRipple label="Enviar" class="p-button-success w-full"></button>
+        </div>
+    </div>
+</form>
+
+
+
+
+

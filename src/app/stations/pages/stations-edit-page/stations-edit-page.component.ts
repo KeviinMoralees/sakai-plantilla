@@ -20,8 +20,7 @@ export class StationsEditPageComponent implements OnInit {
         observacion: [0, [Validators.required]],
         volumen: [0, [Validators.required]],
         tiempoTelemetria: [0, [Validators.required]],
-     })
-
+    })
 
     constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private stationsService: StationsService){}
 
@@ -30,7 +29,6 @@ export class StationsEditPageComponent implements OnInit {
         .pipe(
             switchMap( ({id}) => this.stationsService.getStationById(id))
         ).subscribe( resp => {
-            console.log(resp);
             this.formStation.reset({
                 name: resp?.name,
                 latitud: resp?.latitude,
@@ -41,8 +39,5 @@ export class StationsEditPageComponent implements OnInit {
             })
         })
     }
-
-
-
 
 }

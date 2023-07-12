@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 
@@ -11,8 +12,13 @@ export class MessagesEditPageComponent implements OnInit {
 
 
     public idAudio!: string;
+    public formMessage: FormGroup = this.formBuilder.group({
+        name:['', [Validators.required]],
+        description: ['', [Validators.required]],
+    })
 
-    constructor(private activatedRoute: ActivatedRoute){}
+
+    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder){}
 
     ngOnInit(): void {
         this.activatedRoute.params

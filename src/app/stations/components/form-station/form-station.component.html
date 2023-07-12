@@ -11,13 +11,6 @@
 
         <div class="field col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input type="number" class="w-full" pInputText  formControlName="name" />
-                <label htmlFor="username">latitud</label>
-            </span>
-        </div>
-
-        <div class="field col-12 md:col-6 my-3">
-            <span class="p-float-label">
                 <input  type="number" class="w-full"  pInputText formControlName="latitud"/>
                 <label htmlFor="number-input">Latitud</label>
             </span>
@@ -32,7 +25,7 @@
 
         <div class="fiel col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input type="number" class="w-full" pInputText formControlName="observacion">
+                <input class="w-full" pInputText formControlName="observacion">
                 <label htmlFor="number-input">Observaciones</label>
             </span>
         </div>
@@ -52,8 +45,12 @@
         </div>
 
 
-        <div class="fiel col-12 md:col-12 my-3">
-            <button type="submit" pButton pRipple label="Submit" class="p-button-success w-full"></button>
+        <div class="fiel col-12 md:col-6 my-3">
+            <button (click)="onBack()" pButton pRipple label="Regresar" class="p-button-success w-full"></button>
+        </div>
+
+        <div class="fiel col-12 md:col-6 my-3">
+            <button type="submit"  pButton pRipple label="Enviar" class="p-button-success w-full"></button>
         </div>
     </div>
 </form>
