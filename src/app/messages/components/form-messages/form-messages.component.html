@@ -2,17 +2,25 @@
 <form autocomplete="off" [formGroup]="formMessages" (ngSubmit)="onSubmit()">
 
     <div class="formgrid grid">
-        <div class="field col-12 md:col-6 my-3">
+
+        <div class="field col-12 md:col-6 my-3" >
             <span class="p-float-label">
-                <input class="w-full" pInputText  formControlName="name" />
+                <input class="w-full" pInputText  formControlName="name" [ngClass]="{'ng-dirty': isDirty}" />
                 <label htmlFor="username">Name</label>
+            </span>
+            <span *ngIf="isValidField('name')">
+                {{ getFieldError('name') }}
             </span>
         </div>
 
+
         <div class="field col-12 md:col-6 my-3">
             <span class="p-float-label">
-                <input  class="w-full"  pInputText formControlName="description"/>
+                <input  class="w-full"  pInputText formControlName="description" [ngClass]="{'ng-dirty': isDirty}"/>
                 <label htmlFor="number-input">Descripcion</label>
+            </span>
+            <span *ngIf="isValidField('description')">
+                {{ getFieldError('description') }}
             </span>
         </div>
 
