@@ -21,6 +21,13 @@ export class StationsService {
         )
     }
 
-    
+    getStationById( id: string):Observable<Station| undefined>{
+        return this.http.get<Station>(`${this.baseUrl}/getStationById?id=${id}`)
+        .pipe(
+            catchError( error => of(undefined))
+        )
+    }
+
+
 
 }

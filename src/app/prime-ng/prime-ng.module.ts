@@ -5,6 +5,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 
 
 @NgModule({
@@ -14,7 +17,9 @@ import { ToastModule } from 'primeng/toast';
     ProgressSpinnerModule,
     DialogModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    InputTextModule,
+    InputNumberModule
   ]
 })
 export class PrimeNgModule { }
